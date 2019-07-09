@@ -7,8 +7,8 @@ pipeline {
     }
 	
 	environment {
-		HTTP_PROXY = 'http://10.155.224.26:3128'
-		HTTPS_PROXY = 'http://10.155.224.26:3128'
+		HTTP_PROXY = http://10.155.224.26:3128
+		HTTPS_PROXY = http://10.155.224.26:3128
 	}
 	
     stages {
