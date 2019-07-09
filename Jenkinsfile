@@ -5,6 +5,12 @@ pipeline {
             args '-v /root/.m2:/root/.m2' 
         }
     }
+	
+	environment {
+		HTTP_PROXY = 'http://10.155.224.26:3128'
+		HTTPS_PROXY = 'http://10.155.224.26:3128'
+	}
+	
     stages {
         stage('Build') { 
             steps {
