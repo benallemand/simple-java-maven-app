@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
         }
     }
 	
@@ -13,13 +12,13 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                bat 'mvn -DproxySet=true -DproxyHost=10.155.224.26 -DproxyPort=3128 -B -DskipTests clean package' 
+                sh 'mvn -DproxySet=true -DproxyHost=10.155.224.26 -DproxyPort=3128 -B -DskipTests clean package' 
             }
         }
 		
 		stage('Test') {
 			steps {
-				bat 'mvn -DproxySet=true -DproxyHost=10.155.224.26 -DproxyPort=3128 test'
+				sh 'mvn -DproxySet=true -DproxyHost=10.155.224.26 -DproxyPort=3128 test'
 			}
 			post {
 				always {
